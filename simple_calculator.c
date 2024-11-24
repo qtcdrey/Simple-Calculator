@@ -8,13 +8,12 @@ char op;
 
 int main() 
 {
-    printf("Enter a Number  : ");
+    printf("\nEnter a Number  : ");
     scanf("%f",&num1);
-    printf("(+,-,*,/,%%,#,^) : ");
-    scanf("%s",&op);
+    printf("(+ - * / %% # ^) : ");
+    scanf(" %c",&op);
     
-    if (op != '#') 
-    {
+    if (op != '#') {
         printf("Enter a Number  : ");
         scanf("%f",&num2);
     }
@@ -27,8 +26,7 @@ int main()
 
 float operation(char op) 
 {
-    switch(op) 
-    {
+    switch(op) {
         case '+':
             result =  num1 + num2;
             break;
@@ -39,26 +37,19 @@ float operation(char op)
             result = num1 * num2;
             break;
         case '/':
-            if (num2 != 0) {
-                result = num1 / num2;
-            } 
-            else {
+            (num2 != 0)? 
+                result = num1 / num2:
                 puts("error");
-            }
             break;
         case '%':
-            if (num2 != 0) {
-                result = (int)num1 % (int)num2;
-            } else {
+            (num2 != 0)? 
+                result = (int)num1 % (int)num2:
                 puts("error");
-            }
             break;
         case '#':
-            if (num1 >= 0) {
-                result = sqrt(num1);
-            } else {
+            (num1 >= 0)?
+                result = sqrt(num1):
                 puts("negative numbers");
-            }
             break;
         case '^':
             result = pow(num1,num2);
@@ -66,6 +57,5 @@ float operation(char op)
         default:
             puts("invalid operator");
     }
-
     return result;
 }
